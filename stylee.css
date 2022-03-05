@@ -1,0 +1,13 @@
+
+/* body {background-color: #00456d} */
+body {background-color: linear-gradient(red, #00456d)}
+a:hover {color: #FFFFFF}
+a {color:#ffc400}
+.image{color:#ffd000; vertical-align:bottom}
+.bold {font-weight:bold}
+.underline {text-decoration:underline}
+.italic {font-style:italic}
+p {color:#ffd000}
+h1{color:#FFFFFF}
+h2{color:#FFFFFF}
+.hidden {color:#ffee00; visibility:hidden}

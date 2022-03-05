@@ -1,0 +1,50 @@
+<!-- db.html
+     Use a form to collect a query against the sailor database.
+     Call the PHP script, db.php to perform
+     the given query and display the results
+    -->
+<html>
+<head>
+    <title> NBA DB </title> 
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" 
+    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" 
+    crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+    <h1 class = "centerH" style = "padding-bottom: 2%"> Welcome to NBA DB 2k22 </h1>
+    <div class = "center" >
+        <p> Please select your favorite NBA Team </p> 
+
+        <!-- You should replace the URL to PHP script in action with yours -->
+        <form name = "f1" action = "http://css1.seattleu.edu/~sgurung/nbaDB/db1.php" method = "post">  
+        <div>
+            <p>
+            Team: 
+            <select name = "teams" id = "teams">
+                <option> -- no team selected -- </option>
+                <option> NY Knicks </option>
+                <option> Boston Celtics </option>
+                <option> LA Lakers </option>
+                <option> Chicago Bulls </option>
+            </p>
+        </div>
+        <br />
+        <div>
+            <input type = "submit"  value = "Submit request" />
+            <!-- <button type="submit" form="f1" value="Submit">Submit</button> -->
+        </div>
+        
+    </div>
+    <div class = "bannerDiv" >
+        <img class = "banner" src = "nbaTeams.png" /> 
+    </div>
+</form>    
+<br />
+<br />
+
+</body>
+</html>
+
