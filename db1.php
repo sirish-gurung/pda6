@@ -5,14 +5,14 @@
 
 <html>
 <head>
-<title> Access the cars database with MySQL </title>
-<link rel="stylesheet" type="text/css" href="stylee.css" />
+<title> NBA DB </title>
+<link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
 <?php
 
 
-// read the commnets to better understand
+// read the commnets to better understanding
 
 
 // Connect to MySQL
@@ -37,9 +37,9 @@ if (!$db) {
 }
 
 
-$table = $_POST['table'];
-$pk = $_POST['pk'];
-$val = $_POST['val'];
+// $table = $_POST['table'];
+// $pk = $_POST['pk'];
+$val = $_POST['teams'];
 
 
 // testing purpose (remove it after you complete testing!!!)
@@ -60,7 +60,8 @@ $val = stripslashes($val);
 
 
 // constructing a query
-$query = 'select * from '.$table.' where '.$pk.'='.$val.';'; // dot operator to concatenate
+//$query = 'select * from '.$table.' where '.$pk.'='.$val.';'; // dot operator to concatenate
+$query = 'select * from Player P, Coach C where P.TeamCode='.$val.' and C.TeamCode='.$val.';'; // dot operator to concatenate
 
 
 // Testing (remove it when testing is done!!!)
