@@ -14,6 +14,8 @@
 
 // read the commnets to better understand
 
+// Test comment for Travis Github
+
 
 // Connect to MySQL
 $servername = "cs100.seattleu.edu";
