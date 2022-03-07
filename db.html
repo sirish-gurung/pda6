@@ -1,67 +1,276 @@
-<!-- db.html
-     Use a form to collect a query against the sailor database.
-     Call the PHP script, db.php to perform
-     the given query and display the results
-    -->
-<!-- html file -->
+<!-- Sirish Gurung, Travis
+PDA6
+db.html
+03/07/2022 -->
+
 
 <html>
-<head>
-    <title> NBA DB NEW </title> 
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" 
-    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" 
-    crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="style.css" />
-</head>
+    <head>
+        <title> NBA DB NEW </title> 
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
 
 <body>
-    <h1 class = "centerH" style = "padding-bottom: 2%"> Welcome to NBA DB 2k22 </h1>
-    <div class = "center" >
+    <!-- Top NBA Banner -->
+    <div>
+        <img class = "bannerDivTop" src = "nbaTop.jpeg" /> 
+    </div>
+
+    <!-- <h1 class="centerH" style="padding-bottom: 2%"> Welcome To NBA DB 2k22 </h1> -->
+    <p class="centerH">  Welcome To NBA DB  </p>
+    
+    <!-- Form 1:  -->
+    <div class="center">
         <p> Please select your favorite NBA Team </p> 
 
-        <!-- You should replace the URL to PHP script in action with yours -->
-        <form name = "f1" action = "http://css1.seattleu.edu/~sgurung/pda6/db1.php" method = "post">  
-        <div>
+        <form name="f1" action="http://css1.seattleu.edu/~sgurung/pda6/db1.php" method="post">  
+            <div>
+                <p>
+                Team: 
+                <select name="teams" id="teams">
+                    <option> -- no team selected -- </option>
+                    <option value="&quot;bos&quot;"> Boston Celtics </option>
+                    <option value="&quot;bkn&quot;"> Brooklyn Nets </option>
+                    <option value="&quot;ny&quot;"> New York Knicks </option>
+                    <option value="&quot;phi&quot;"> Philadelphia 76ers </option>
+                    <option value="&quot;tor&quot;"> Toronto Raptors </option>
+                    <option value="&quot;gs&quot;"> Golden State Warriors </option>
+                    <option value="&quot;lac&quot;"> Los Angeles Clippers </option>
+                    <option value="&quot;lal&quot;"> Los Angeles Lakers </option>
+                    <option value="&quot;phx&quot;"> Phoenix Suns </option>
+                    <option value="&quot;sac&quot;"> Sacramento Kings </option>
+                    <option value="&quot;chi&quot;"> Chicago Bulls </option>
+                    <option value="&quot;cle&quot;"> Cleveland Cavaliers </option>
+                    <option value="&quot;det&quot;"> Detroit Pistons </option>
+                    <option value="&quot;ind&quot;"> Indiana Pacers </option>
+                    <option value="&quot;mil&quot;"> Milwaukee Bucks </option>
+                    <option value="&quot;dal&quot;"> Dallas Mavericks </option>
+                    <option value="&quot;hou&quot;"> Houston Rockets </option>
+                    <option value="&quot;mem&quot;"> Memphis Grizzlies </option>
+                    <option value="&quot;no&quot;"> New Orleans Hornets </option>
+                </select><input type="submit" value="Submit request">
+                <!-- <button type="submit" form="f1" value="Submit">Submit</button> -->
+            </p></div>
+        </form> 
+    </div>
+ 
+    <br>
+
+    <!-- Form: 2 -->
+    <div class="center">
+        <p> Please select a Player Position and a Team </p> 
+
+        <form name = "f2" action = "http://css1.seattleu.edu/~sgurung/pda6/db2.php" method = "post">  
+	    <div>
             <p>
-            Team: 
-            <select name = "teams" id = "teams">
-                <option> -- no team selected -- </option>
-                <option value = '"bos"' > Boston Celtics </option>
-                <option value = '"bkn"' > Brooklyn Nets </option>
-                <option value = '"ny"' > New York Knicks </option>
-                <option value = '"phi"' > Philadelphia 76ers </option>
-                <option value = '"tor"' > Toronto Raptors </option>
-                <option value = '"gs"' > Golden State Warriors </option>
-                <option value = '"lac"' > Los Angeles Clippers </option>
-                <option value = '"lal"' > Los Angeles Lakers </option>
-                <option value = '"phx"' > Phoenix Suns </option>
-                <option value = '"sac"' > Sacramento Kings </option>
-                <option value = '"chi"' > Chicago Bulls </option>
-                <option value = '"cle"' > Cleveland Cavaliers </option>
-                <option value = '"det"' > Detroit Pistons </option>
-                <option value = '"ind"' > Indiana Pacers </option>
-                <option value = '"mil"' > Milwaukee Bucks </option>
-                <option value = '"dal"' > Dallas Mavericks </option>
-                <option value = '"hou"' > Houston Rockets </option>
-                <option value = '"mem"' > Memphis Grizzlies </option>
-                <option value = '"no"' > New Orleans Hornets </option>
+                Position: 
+                <select name = "positions" id = "positions">
+                    <option> -- no position selected -- </option>
+                    <option value = "'PG'" > PG </option>
+                    <option value = "'SG'" > SG </option>
+                    <option value = "'SF'" > SF </option>
+                    <option value = "'PF'" > PF </option>
+                    <option value = "'C'" > C </option>
+                </select>
+            </p>
+            <p>
+                Team: 
+                <select name="teams" id="teams">
+                    <option> -- no team selected -- </option>
+                    <option value="&quot;bos&quot;"> Boston Celtics </option>
+                    <option value="&quot;bkn&quot;"> Brooklyn Nets </option>
+                    <option value="&quot;ny&quot;"> New York Knicks </option>
+                    <option value="&quot;phi&quot;"> Philadelphia 76ers </option>
+                    <option value="&quot;tor&quot;"> Toronto Raptors </option>
+                    <option value="&quot;gs&quot;"> Golden State Warriors </option>
+                    <option value="&quot;lac&quot;"> Los Angeles Clippers </option>
+                    <option value="&quot;lal&quot;"> Los Angeles Lakers </option>
+                    <option value="&quot;phx&quot;"> Phoenix Suns </option>
+                    <option value="&quot;sac&quot;"> Sacramento Kings </option>
+                    <option value="&quot;chi&quot;"> Chicago Bulls </option>
+                    <option value="&quot;cle&quot;"> Cleveland Cavaliers </option>
+                    <option value="&quot;det&quot;"> Detroit Pistons </option>
+                    <option value="&quot;ind&quot;"> Indiana Pacers </option>
+                    <option value="&quot;mil&quot;"> Milwaukee Bucks </option>
+                    <option value="&quot;dal&quot;"> Dallas Mavericks </option>
+                    <option value="&quot;hou&quot;"> Houston Rockets </option>
+                    <option value="&quot;mem&quot;"> Memphis Grizzlies </option>
+                    <option value="&quot;no&quot;"> New Orleans Hornets </option>
             </p>
         </div>
-        <br />
-        <div>
-            <input type = "submit"  value = "Submit request" />
-            <!-- <button type="submit" form="f1" value="Submit">Submit</button> -->
+	    </div>
+	    <div>
+		    <input type = "submit"  value = "Submit request" />
         </div>
+        </form>
+    </div>
+
+    <br />
+
+    <!-- Form: 3 -->
+    <div class="center">
+        <p> Select your favorite team to see their Match Details </p>
         
+        <form name="f3" action="http://css1.seattleu.edu/~sgurung/pda6/db3.php" method="post">
+            <p>
+                Team: 
+                <select name="teams" id="teams">
+                    <option> -- no team selected -- </option>
+                    <option value="&quot;Boston Celtics&quot;"> Boston Celtics </option>
+                    <option value="&quot;Brooklyn Nets&quot;"> Brooklyn Nets </option>
+                    <option value="&quot;New York Knicks&quot;"> New York Knicks </option>
+                    <option value="&quot;Philadelphia 76ers&quot;"> Philadelphia 76ers </option>
+                    <option value="&quot;Toronto Raptors&quot;"> Toronto Raptors </option>
+                    <option value="&quot;Golden State Warriors&quot;"> Golden State Warriors </option>
+                    <option value="&quot;Los Angeles Clippers&quot;"> Los Angeles Clippers </option>
+                    <option value="&quot;Los Angeles Lakers&quot;"> Los Angeles Lakers </option>
+                    <option value="&quot;Phoenix Suns&quot;"> Phoenix Suns </option>
+                    <option value="&quot;Sacramento Kings&quot;"> Sacramento Kings </option>
+                    <option value="&quot;Chicago Bulls&quot;"> Chicago Bulls </option>
+                    <option value="&quot;Cleveland Cavaliers&quot;"> Cleveland Cavaliers </option>
+                    <option value="&quot;Detroit Pistons&quot;"> Detroit Pistons </option>
+                    <option value="&quot;Indiana Pacers&quot;"> Indiana Pacers </option>
+                    <option value="&quot;Milwaukee Bucks&quot;"> Milwaukee Bucks </option>
+                    <option value="&quot;Dallas Mavericks&quot;"> Dallas Mavericks </option>
+                    <option value="&quot;Houston Rockets&quot;"> Houston Rockets </option>
+                    <option value="&quot;Memphis Grizzlies&quot;"> Memphis Grizzlies </option>
+                    <option value="&quot;New Orleans Hornets&quot;"> New Orleans Hornets </option>
+            </p>
+            <input type="reset" value="Reset">
+            <input type="submit" value="Submit request">
+        </form>
     </div>
-    <div class = "bannerDiv" >
-        <img class = "banner" src = "nbaTeams.png" /> 
+
+    <br />
+
+    <!-- Form 4: -->
+                        <!-- Team:
+                        <select name="teams" id="teams">
+                            <option> -- no team selected -- </option>
+                            <option value='"bos"'> Boston Celtics </option>
+                            <option value='"bkn"'> Brooklyn Nets </option>
+                            <option value='"ny"'> New York Knicks </option>
+                            <option value='"phi"'> Philadelphia 76ers </option>
+                            <option value='"tor"'> Toronto Raptors </option>
+                            <option value='"gs"'> Golden State Warriors </option>
+                            <option value='"lac"'> Los Angeles Clippers </option>
+                            <option value='"lal"'> Los Angeles Lakers </option>
+                            <option value='"phx"'> Phoenix Suns </option>
+                            <option value='"sac"'> Sacramento Kings </option>
+                            <option value='"chi"'> Chicago Bulls </option>
+                            <option value='"cle"'> Cleveland Cavaliers </option>
+                            <option value='"det"'> Detroit Pistons </option>
+                            <option value='"ind"'> Indiana Pacers </option>
+                            <option value='"mil"'> Milwaukee Bucks </option>
+                            <option value='"dal"'> Dallas Mavericks </option>
+                            <option value='"hou"'> Houston Rockets </option>
+                            <option value='"mem"'> Memphis Grizzlies </option>
+                            <option value='"no"'> New Orleans Hornets </option> -->
+    
+    <!-- Form 4: -->
+    <form name="f4" action="http://css1.seattleu.edu/~sgurung/pda6/db4.php" method="post">
+        <div class="center">
+            <p> Find the average height of the players of your favorite team </p>
+
+                <div>
+                    <p>
+                    Team: 
+                    <select name="teams" id="teams">
+                        <option> -- no team selected -- </option>
+                        <option value="&quot;bos&quot;"> Boston Celtics </option>
+                        <option value="&quot;bkn&quot;"> Brooklyn Nets </option>
+                        <option value="&quot;ny&quot;"> New York Knicks </option>
+                        <option value="&quot;phi&quot;"> Philadelphia 76ers </option>
+                        <option value="&quot;tor&quot;"> Toronto Raptors </option>
+                        <option value="&quot;gs&quot;"> Golden State Warriors </option>
+                        <option value="&quot;lac&quot;"> Los Angeles Clippers </option>
+                        <option value="&quot;lal&quot;"> Los Angeles Lakers </option>
+                        <option value="&quot;phx&quot;"> Phoenix Suns </option>
+                        <option value="&quot;sac&quot;"> Sacramento Kings </option>
+                        <option value="&quot;chi&quot;"> Chicago Bulls </option>
+                        <option value="&quot;cle&quot;"> Cleveland Cavaliers </option>
+                        <option value="&quot;det&quot;"> Detroit Pistons </option>
+                        <option value="&quot;ind&quot;"> Indiana Pacers </option>
+                        <option value="&quot;mil&quot;"> Milwaukee Bucks </option>
+                        <option value="&quot;dal&quot;"> Dallas Mavericks </option>
+                        <option value="&quot;hou&quot;"> Houston Rockets </option>
+                        <option value="&quot;mem&quot;"> Memphis Grizzlies </option>
+                        <option value="&quot;no&quot;"> New Orleans Hornets </option>
+
+                    </select>
+                        <input type="reset" value="Reset">
+                        <input type="submit" value="Submit request">
+                    </p>
+                </div>
+        </div>
+    </form>                          
+    
+    <br />
+
+    <!-- Form 5: -->
+    <div class="center">
+        <p> Please select a NBA Team </p>
+    
+        <!-- You should replace the URL to PHP script in action with yours -->
+        <form name="f5" action="http://css1.seattleu.edu/~sgurung/pda6/db5.php" method="post">
+            <div>
+                <p> Select a NBA Team</p>
+                <select name="teams" id="teams">
+                    <option> -- no team selected -- </option>
+                    <option value="bos"> Boston Celtics </option>
+                    <option value="bkn"> Brooklyn Nets </option>
+                    <option value="ny"> New York Knicks </option>
+                    <option value="phi"> Philadelphia 76ers </option>
+                    <option value="tor"> Toronto Raptors </option>
+                    <option value="gs"> Golden State Warriors </option>
+                    <option value="lac"> Los Angeles Clippers </option>
+                    <option value="lal"> Los Angeles Lakers </option>
+                    <option value="phx"> Phoenix Suns </option>
+                    <option value="sac"> Sacramento Kings </option>
+                    <option value="chi"> Chicago Bulls </option>
+                    <option value="cle"> Cleveland Cavaliers </option>
+                    <option value="det"> Detroit Pistons </option>
+                    <option value="ind"> Indiana Pacers </option>
+                    <option value="mil"> Milwaukee Bucks </option>
+                    <option value="dal"> Dallas Mavericks </option>
+                    <option value="hou"> Houston Rockets </option>
+                    <option value="mem"> Memphis Grizzlies </option>
+                    <option value="no"> New Orleans Hornets </option>
+                </select>
+
+                <p> Select a player position</p>
+                Position:
+                <select name="position" id="position">
+                    <option> -- no team selected -- </option>
+                    <option values="PG"> PG </option>
+                    <option values="SG"> SG </option>
+                    <option values="SF"> SF </option>
+                    <option values="PF"> PF </option>
+                    <option values="C"> C </option>
+                </select>
+                <p> Input your own name and age </p>
+                Name: <input type = "text" name = "name" /> <br />
+                Age: <input type = "text" name = "age" /> <br />
+		        Height: <input type = "number" name = "height" /> <br />
+            </div>
+
+            <br />
+
+            <div>
+                <input type="submit" value="Submit request" />
+                <!-- <button type="submit" form="f1" value="Submit">Submit</button> -->
+            </div>
+    
     </div>
-</form>    
-<br />
-<br />
+
+    <br />
+
+<!-- Bottom NBA banner -->
+<div class="bannerDiv">
+    <img class = "banner" src = "nbaBottom.jpeg" /> 
+</div>
 
 </body>
 </html>
-

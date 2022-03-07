@@ -1,7 +1,13 @@
-<!-- db1.php
-     A PHP script to access the sailor database
-     through MySQL
-     -->
+<!-- Sirish Gurung, Travis Ishihara
+PDA6
+db1.php
+03/07/2022  -->
+<!-- 
+A PHP script to access the nba database
+through MySQL -->
+
+<!-- Form 1: Team Info  -->
+
 
 <html>
 <head>
@@ -10,10 +16,6 @@
 </head>
 <body>
 <?php
-
-
-// read the commnets to better understanding
-
 
 // Connect to MySQL
 $servername = "cs100.seattleu.edu";
@@ -27,7 +29,6 @@ if (!$conn) {
      exit;
 }
 
-// change to your default db for PDA6!!!
 $dbname = "bw_db9";
 
 $db = mysql_select_db($dbname, $conn);
@@ -36,17 +37,7 @@ if (!$db) {
     exit;
 }
 
-
-// $table = $_POST['table'];
-// $pk = $_POST['pk'];
 $val = $_POST['teams'];
-
-
-// testing purpose (remove it after you complete testing!!!)
-print "Table: ".$table."<br />";
-print "PK attr: ".$pk."<br />";
-print "PK value: ".$val."<br />";
-
 
 // Clean up the given query (delete leading and trailing whitespace)
 trim($table);
@@ -58,14 +49,8 @@ $table = stripslashes($table);
 $pk = stripslashes($pk);
 $val = stripslashes($val);
 
-
 // constructing a query
-//$query = 'select * from '.$table.' where '.$pk.'='.$val.';'; // dot operator to concatenate
 $query = 'select * from Player P, Coach C where P.TeamCode='.$val.' and C.TeamCode='.$val.';'; // dot operator to concatenate
-
-
-// Testing (remove it when testing is done!!!)
-print "<p>Query: ".$query."</p>";
 
 // Execute the query
 $result = mysql_query($query);
@@ -78,18 +63,18 @@ if (!$result) {
 
 // Get the number of rows in the result
 $num_rows = mysql_num_rows($result);
-
-print "Number of rows = $num_rows <br />";
+// print "Number of rows = $num_rows <br />";
 
 // Get the number of fields in the rows
 $num_fields = mysql_num_fields($result);
-print "Number of fields = $num_fields <br />";
+// print "Number of fields = $num_fields <br />";
 
 // Get the first row
 $row = mysql_fetch_array($result);
 
 // Display the results in a table
 print "<table border='border'><caption> <h2> Query Results </h2> </caption>";
+print "<table border='border'><caption> <h2> Players and Coaches Table </h2> </caption>";
 print "<tr align = 'center'>";
 
 // Produce the column labels

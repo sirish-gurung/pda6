@@ -29,6 +29,13 @@ h1 {
     padding: 10px;
 }
 
+.center1 {
+    margin: auto;
+    width: 66%;
+    border: 3px solid rgb(255, 214, 8);
+    padding: 10px;
+}
+
 .centerH {
     margin: auto;
     width: 21%;
@@ -36,10 +43,16 @@ h1 {
 }
 
 .bannerDiv {
-    margin: auto;
-    width: 102%;
+    /* margin: auto; */
+    width: 200%;
     height: 32%;
-    padding-left: 29%;
+    padding-right: 30%;
+    /* padding-top: 1%; */
+}
+
+.bannerDivTop {
+    margin: auto;
+    padding-left: 30%;
     /* padding-top: 1%; */
 }
 
@@ -50,3 +63,7 @@ h1 {
     padding-right: 42%;
     
 }
+
+/* td {
+    color = 
+} */
