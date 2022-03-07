@@ -1,17 +1,22 @@
-<!-- db.php
-     A PHP script to access the sailor database
-     through MySQL
-     -->
+<!-- Sirish Gurung, Travis Ishihara
+PDA6
+db2.php
+03/07/2022  -->
+<!-- 
+A PHP script to access the nba database
+through MySQL -->
+
+<!-- Form 2: Player Info  -->
+
 <html>
 <head>
-<title> Access the cars database with MySQL </title>
-<link rel="stylesheet" type="text/css" href="stylee.css" />
+<title> Access the Team Database </title>
+<link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
 <?php
 
 // Connect to MySQL
-
 $servername = "cs100.seattleu.edu";
 $username = "user9";
 $password = "1234abcdF!";
@@ -19,12 +24,12 @@ $password = "1234abcdF!";
 $conn = mysql_connect($servername, $username, $password);
 
 if (!$conn) {
-     print "Error - Could not connect to MySQL ".$servername;
+     print "Error - Could not connect to MySQL ".$conn;
      exit;
 }
 
 // change to your default db for PDA6!!!
-$dbname = "bw_sailor";
+$dbname = "bw_db9";
 
 $db = mysql_select_db($dbname, $conn);
 if (!$db) {
@@ -32,43 +37,43 @@ if (!$db) {
     exit;
 }
 
+$val = $_POST['positions'];
+$val1 = $_POST['teams'];
 
-$color = $_POST['color'];
+// Clean up the given query (delete leading and trailing whitespace)
+trim($val);
 
+// remove the extra slashes
+$val = stripslashes($val);
 
-$query = "select * from boats where color='".$color."';";
+$query = 'select * from Player where PPosition='.$val.' and TeamCode='.$val1.';';
 
-// Testing (delete it when testing is done!!!)
-print "<p>Query: ".$query."</p>";
+// Testing (remove it when testing is done!!!)
+// print "<p>Query: ".$query."</p>";
 
 // Execute the query
 $result = mysql_query($query);
 if (!$result) {
-   print "Error - the query could not be executed";
-   $error = mysql_error();
-   print "<p>" . $error . "</p>";
-   exit;
+    print "Error - the query could not be executed";
+    $error = mysql_error();
+    print "<p>" . $error . "</p>";
+    exit;
 }
 
 // Get the number of rows in the result
 $num_rows = mysql_num_rows($result);
-print "Number of rows = $num_rows <br />";
+//print "Number of rows = $num_rows <br />";
 
 // Get the number of fields in the rows
 $num_fields = mysql_num_fields($result);
-print "Number of fields = $num_fields <br />";
+//print "Number of fields = $num_fields <br />";
 
 // Get the first row
 $row = mysql_fetch_array($result);
 
-if ($row == 0) {
-   print "<p> No results! </p>";
-   exit;
-}
-
 // Display the results in a table
-print "<table border='border'><caption> <h2> Query Results for color ".$color." </h2> </caption>";
-
+print "<table border='border'><caption> <h2> Query Results </h2> </caption>";
+print "<table border='border'><caption> <h2> Player Position Table </h2> </caption>";
 print "<tr align = 'center'>";
 
 // Produce the column labels
@@ -99,7 +104,7 @@ mysql_close($conn);
 ?>
 
 <br /><br />
-<a href="http://css1.seattleu.edu/~sgurung/dbtest/db.html"> Go to Main Page </a>
+<a href="http://css1.seattleu.edu/~sgurung/pda6/db.html"> Go to Main Page </a>
 
 </body>
 </html>

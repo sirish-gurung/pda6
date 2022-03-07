@@ -1,17 +1,16 @@
 <!-- Sirish Gurung, Travis Ishihara
 PDA6
-db3.php
+db5.php
 03/07/2022  -->
 <!-- 
 A PHP script to access the nba database
 through MySQL -->
 
-<!-- Form 3: Match Info  -->
-
-
+<!-- Form 5: Player Info  -->
+     
 <html>
 <head>
-<title> Access the Match Database </title>
+<title> NBA Player DB </title>
 <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
@@ -29,30 +28,37 @@ if (!$conn) {
      exit;
 }
 
-// setting up DB name
+// change to your default db for PDA6!!!
 $dbname = "bw_db9";
 
 $db = mysql_select_db($dbname, $conn);
 if (!$db) {
-    print "Error - Could not select the sailor database ".$dbname;
+    print "Error - Could not select the NBA database ".$dbname;
     exit;
 }
 
 $val = $_POST['teams'];
 
 // Clean up the given query (delete leading and trailing whitespace)
+trim($table);
+trim($pk);
 trim($val);
 
 // remove the extra slashes
+$table = stripslashes($table);
+$pk = stripslashes($pk);
 $val = stripslashes($val);
 
-//Query
-$query = 'select * from MatchInfo where HomeTeam= '.$val.' or OpposingTeam='.$val.';';
+// constructing a query
+$query = 'select AVG(Height) from Player where TeamCode='.$val.';'; // dot operator to concatenate
+
+// Testing (remove it when testing is done!!!)
+// print "<p>Query: ".$query."</p>";
 
 // Execute the query
 $result = mysql_query($query);
 if (!$result) {
-    print "Error - the query could not be executed";
+    print "Error - the query could not be executed!";
     $error = mysql_error();
     print "<p>" . $error . "</p>";
     exit;
@@ -60,18 +66,18 @@ if (!$result) {
 
 // Get the number of rows in the result
 $num_rows = mysql_num_rows($result);
-// print "Number of rows = $num_rows <br />";
+//print "Number of rows = $num_rows <br />";
 
 // Get the number of fields in the rows
 $num_fields = mysql_num_fields($result);
-// print "Number of fields = $num_fields <br />";
+//print "Number of fields = $num_fields <br />";
 
 // Get the first row
 $row = mysql_fetch_array($result);
 
 // Display the results in a table
 print "<table border='border'><caption> <h2> Query Results </h2> </caption>";
-print "<table border='border'><caption> <h2> Match Information Table </h2> </caption>";
+print "<table border='border'><caption> <h2> PLayer Average Height Table </h2> </caption>";
 print "<tr align = 'center'>";
 
 // Produce the column labels
