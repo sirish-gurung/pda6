@@ -40,7 +40,7 @@ db5.php
 Select the Team you want to play for
 (Insert a new tuple into a table: the values of the tuple should be obtained by the user)
 	Users can select the team of their choice (drop down menu)
-    Users can select the position of their choice (drop down menu)
+    	Users can select the position of their choice (drop down menu)
 	Users will input their name, age, and height (type)
 	
-    Displays the updated table after the user is registered into the database. 
+    	Displays the updated table after the user is registered into the database. 
