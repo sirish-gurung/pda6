@@ -98,6 +98,8 @@ for ($row_num = 0; $row_num < $num_rows; $row_num++) {
 
 print "</table>";
 
+
+
 mysql_close($conn);
 ?>
 

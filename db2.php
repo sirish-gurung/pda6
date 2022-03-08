@@ -48,11 +48,18 @@ $val = stripslashes($val);
 
 $query = 'select * from Player where PPosition='.$val.' and TeamCode='.$val1.';';
 
+//query2
+$query2 = 'select CoachId, CName, CAge, TeamCode from Coach where TeamCode='.$val1.';';
+
 // Testing (remove it when testing is done!!!)
 // print "<p>Query: ".$query."</p>";
 
 // Execute the query
 $result = mysql_query($query);
+
+// Execute the query2
+$result2 = mysql_query($query2);
+
 if (!$result) {
     print "Error - the query could not be executed";
     $error = mysql_error();
@@ -63,13 +70,16 @@ if (!$result) {
 // Get the number of rows in the result
 $num_rows = mysql_num_rows($result);
 //print "Number of rows = $num_rows <br />";
+$num_rows2 = mysql_num_rows($result2);
 
 // Get the number of fields in the rows
 $num_fields = mysql_num_fields($result);
 //print "Number of fields = $num_fields <br />";
+$num_fields2 = mysql_num_fields($result2);
 
 // Get the first row
 $row = mysql_fetch_array($result);
+$row2 = mysql_fetch_array($result2);
 
 // Display the results in a table
 print "<table border='border'><caption> <h2> Query Results </h2> </caption>";
@@ -99,6 +109,36 @@ for ($row_num = 0; $row_num < $num_rows; $row_num++) {
 }
 
 print "</table>";
+
+// // For query 2
+// Display the results in a table
+print "<table border='border'><caption> <h2> Team Coach Table </h2> </caption>";
+print "<tr align = 'center'>";
+
+// Produce the column labels
+$keys2 = array_keys($row2);
+for ($index = 0; $index < $num_fields2; $index++) 
+    print "<th>" . $keys2[2 * $index + 1] . "</th>";
+
+print "</tr>";
+
+// Output the values of the fields in the rows
+for ($row2_num = 0; $row2_num < $num_rows2; $row2_num++) {
+
+    print "<tr align = 'center'>";
+    $value2s2 = array_values($row2);
+	
+    for ($index = 0; $index < $num_fields2; $index++){
+        $value2 = htmlspecialchars($value2s2[2 * $index + 1]);
+        print "<td>" . $value2 . "</td> ";
+    }
+
+    print "</tr>";
+    $row2 = mysql_fetch_array($result2);
+}
+
+print "</table>";
+
 
 mysql_close($conn);
 ?>
